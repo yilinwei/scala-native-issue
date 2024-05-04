@@ -1,12 +1,14 @@
 import scala.scalanative.unsafe._
 
 object Foo {
-  def someMethod(): Unit =
+  def someMethod(): Unit = {
     try {
       throw new IllegalArgumentException("foo")
     } catch {
-      case _: IllegalArgumentException =>
+      case e: IllegalArgumentException =>
+        e.printStackTrace()
     }
+  }
 }
 
 object Lib {
